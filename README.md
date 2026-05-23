@@ -2,6 +2,10 @@
 Stroke Prediction using ANN (TensorFlow) with Streamlit Web App | Deep Learning Healthcare Project with Threshold Tuning &amp; Model Evaluation
 # 🧠 Stroke Prediction using ANN (TensorFlow)
 
+Live App:  https://stroke-prediction-app-using-ann-dl-project.streamlit.app/
+
+Github repo:  samichohan/Stroke-Prediction-App-Using-ANN-DL-Project 
+
 ## 📌 Project Overview
 This project builds a Deep Learning model using Artificial Neural Networks (ANN) to predict whether a person is at risk of stroke based on medical and lifestyle data.
 
