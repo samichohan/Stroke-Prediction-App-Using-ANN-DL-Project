@@ -263,7 +263,7 @@ div.stButton > button:hover {
 # ── Load model & artifacts ────────────────────────────────────────────────────
 @st.cache_resource
 def load_artifacts():
-    model = ort.InferenceSession("model.onnx")
+    model  = ort.InferenceSession("model.onnx")
     with open("scaler.pkl", "rb")  as f: scaler  = pickle.load(f)
     with open("columns.pkl", "rb") as f: columns = pickle.load(f)
     return model, scaler, columns
@@ -347,8 +347,7 @@ if predict_btn:
     df_encoded = pd.get_dummies(df_input)
     df_final  = df_encoded.reindex(columns=columns, fill_value=0)
     X         = scaler.transform(df_final)
-    input_name = model.get_inputs()[0].name
-    prob = float(model.run(None, {input_name: X.astype(np.float32)})[0][0][0])
+    prob      = float(model.predict(X, verbose=0)[0][0])
     stroke    = prob >= THRESHOLD
  
     st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
@@ -413,3 +412,4 @@ st.markdown("""
     Always consult a licensed healthcare provider for diagnosis and treatment.
 </div>
 """, unsafe_allow_html=True)
+ 
